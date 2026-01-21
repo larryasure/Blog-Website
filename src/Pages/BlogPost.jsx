@@ -20,7 +20,7 @@ export default function BlogPost() {
       <img
         src={post.image}
         alt={post.title}
-        className="w-full h-96 object-cover rounded-xl mb-6"
+        className="w-full h-96 object-cover  rounded-xl mb-6"
       />
 
       <p className="text-sm text-gray-500 mb-4">{post.createdAt}</p>

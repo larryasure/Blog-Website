@@ -5,20 +5,21 @@ import { NavLink } from "react-router-dom";
 
 export default function Blogs() {
   return (
-    <div className="min-h-screen px-7 py-10 flex flex-wrap gap-6 justify-center">
+    <div className="min-h-screen px-2  py-10 flex flex-wrap gap-6 justify-center">
       {posts.map((post, index) => (
         <div
           key={index}
-          className="w-80 h-96 shadow-xl hover:shadow-2xl rounded-2xl overflow-hidden flex flex-col"
+          className="w-70 h-96 shadow-xl hover:shadow-2xl rounded-2xl overflow-hidden flex flex-col"
         >
           <NavLink to={`/blogs/${post.slug}`} className="text-black hover:text-red transition-all duration-300">
-            <div className="w-full h-40 relative overflow-hidden rounded-t-2xl">
+            <div className="w-full h-50 relative overflow-hidden rounded-t-2xl">
               <img
                 src={post.image}
                 alt={ post.image}
-                className="object-cover w-full h-full hover:scale-110 transition-transform duration-300 cursor-pointer"
+                className="object-cover w-full hover:scale-110 transition-transform duration-300 cursor-pointer"
               />
             </div>
+            
           </NavLink>
 
           {/* Content */}

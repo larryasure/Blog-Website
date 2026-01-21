@@ -5,11 +5,11 @@ import { NavLink } from "react-router-dom";
 
 export default function Blogs() {
   return (
-    <div className="min-h-screen px-2  py-10 flex flex-wrap gap-6 justify-center">
+    <div className="min-h-screen grid sm:grid-cols-2 lg:grid-cols-4 gap-8 px-8">
       {posts.map((post, index) => (
         <div
           key={index}
-          className="w-70 h-96 shadow-xl hover:shadow-2xl rounded-2xl overflow-hidden flex flex-col"
+          className="w-70 h-96 shadow-xl hover:shadow-lg rounded-2xl overflow-hidden flex flex-col"
         >
           <NavLink to={`/blogs/${post.slug}`} className="text-black hover:text-red transition-all duration-300">
             <div className="w-full h-50 relative overflow-hidden rounded-t-2xl">
@@ -36,7 +36,7 @@ export default function Blogs() {
             <div className="flex items-center justify-between mt-4 text-sm font-semibold">
               <span>{post.createdAt}</span>
               <span style={{ color: post.type[0].color }}>
-                {post.type[0].typeof}
+                #{post.type[0].typeof}
               </span>
             </div>
           </div>

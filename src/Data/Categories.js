@@ -1,21 +1,37 @@
 import tech3 from "../assets/person-front-computer-working-html.jpg";
-import food1 from "../assets/food1.jpg";
+import fashion3 from "../assets/fashion3.jpg";
+import food1 from "../assets/food.jpg";
+import travel1 from "../assets/travel1.jpg";
 import lifestyle2 from "../assets/lifestyle2.jpg";
 
 export const categories = [
   {
-    name: "Technology",
-    slug: "technology",
+    name: "Tech",
+    slug: "tech",
     image: tech3,
     color: "#f97316",
     description: "Articles about software, tools, and modern development.",
   },
   {
-    name: "Design",
-    slug: "design",
+    name: "Fashion",
+    slug: "fashion",
+    image: fashion3,
+    color: "#a855f7",
+    description: "Style tips, trends, and fashion inspiration.",
+  },
+  {
+    name: "Food",
+    slug: "food",
     image: food1,
     color: "#ec4899",
-    description: "UI, UX, and creative design thinking.",
+    description: "Recipes, culinary tips, and food culture.",
+  },
+  {
+    name: "Travel",
+    slug: "travel",
+    image: travel1,
+    color: "#06b6d4",
+    description: "Destinations, travel guides, and adventure stories.",
   },
   {
     name: "Lifestyle",

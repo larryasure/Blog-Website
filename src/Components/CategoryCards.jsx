@@ -1,6 +1,4 @@
 import { motion } from "framer-motion";
-import React from "react";
-
 export default function CategoryCards({ category }) {
   return (
     <>
@@ -18,7 +16,10 @@ export default function CategoryCards({ category }) {
         <div className="absolute inset-0 bg-black/50 z-0" />
 
         <div className="relative z-10 h-full flex flex-col justify-end p-5">
-          <h2 className="text-2xl font-semibold " style={{ color: category.color }}>
+          <h2
+            className="text-2xl font-semibold "
+            style={{ color: category.color }}
+          >
             {category.name}
           </h2>
           <p className="text-sm text-gray-200 mt-1">{category.description}</p>

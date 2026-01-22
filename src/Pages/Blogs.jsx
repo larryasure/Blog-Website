@@ -1,6 +1,5 @@
 import React from "react";
 import { posts } from "../Data/sample";
-
 import { NavLink } from "react-router-dom";
 
 export default function Blogs() {

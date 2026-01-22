@@ -7,7 +7,6 @@ import travel1 from "../assets/travel.jpg";
 import lifestyle1 from "../assets/lifestyle.jpg";
 
 export const posts = [
-
   {
     id: 1,
     title: "10 Tips to Learn React Fast",
@@ -19,7 +18,7 @@ export const posts = [
     type: [{ typeof: "Tech", color: "#0957e8" }],
     image: codingMan,
   },
-
+  
   {
     id: 2,
     title: "How to Use Three.js in React",
@@ -91,5 +90,4 @@ export const posts = [
     type: [{ typeof: "Fashion", color: "#f04a29" }],
     image: fashion2,
   },
-  
 ];

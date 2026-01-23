@@ -14,7 +14,7 @@ export default function Blogs() {
             <div className="w-full h-50 relative overflow-hidden rounded-t-2xl">
               <img
                 src={post.image}
-                alt={ post.image}
+                alt={ post.name}
                 className="object-cover w-full hover:scale-110 transition-transform duration-300 cursor-pointer"
               />
             </div>

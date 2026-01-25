@@ -1,30 +1,40 @@
-import React from "react";
 import { posts } from "../Data/sample";
 import { NavLink } from "react-router-dom";
+import Swiper from "react-swiper";
+
 
 export default function Home() {
   return (
     <div className="min-h-screen px-8 py-16 max-w-7xl mx-auto">
-
       {/* HERO SECTION */}
-      <section className="mb-20">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-          Stories, Tutorials & Ideas
+      <section className="mb-32">
+        <h1 className="text-5xl md:text-7xl font-extrabold leading-tight max-w-4xl">
+          Stories that spark <br />
+          <span className="text-gray-400">ideas & curiosity</span>
         </h1>
 
-        <p className="text-gray-600 max-w-xl mb-6">
-          Exploring technology, lifestyle, design, and everything in between.
+        <p className="text-lg text-gray-500 max-w-2xl mt-6">
+          Deep dives, tutorials, and thoughts on technology, design, and
+          creative living.
         </p>
 
-        <NavLink
-          to="/blogs"
-          className="inline-block bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition"
-        >
-          Explore Blog
-        </NavLink>
+        <div className="flex gap-4 mt-10">
+          <NavLink
+            to="/blogs"
+            className="bg-black text-white px-8 py-4 rounded-full hover:bg-gray-800 transition"
+          >
+            Read the Blog
+          </NavLink>
+
+          <NavLink
+            to="/about"
+            className="border border-gray-300 px-8 py-4 rounded-full hover:bg-gray-100 transition"
+          >
+            About Me
+          </NavLink>
+        </div>
       </section>
 
-      {/* INTRO */}
       <section className="mb-10">
         <h2 className="text-3xl font-bold mb-3">Welcome to my Blog</h2>
         <p className="text-gray-500 max-w-xl">
@@ -32,7 +42,8 @@ export default function Home() {
         </p>
       </section>
 
-      {/* FEATURED POSTS */}
+      {/* Featured Post */}
+
       <section className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {posts.slice(0, 4).map((post) => (
           <NavLink key={post.id} to={`/blog/${post.slug}`}>
@@ -44,15 +55,12 @@ export default function Home() {
               />
 
               <div className="p-4">
-                <h3 className="font-bold text-lg truncate">
-                  {post.title}
-                </h3>
+                <h3 className="font-bold text-lg truncate">{post.title}</h3>
               </div>
             </div>
           </NavLink>
         ))}
       </section>
-
     </div>
   );
 }

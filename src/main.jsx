@@ -11,7 +11,6 @@ import BlogPost from "./Pages/BlogPost";
 import Contact from "./Pages/Contact";
 import Category from "./Pages/Category";
 import CategoryPosts from "./Pages/CategoryPosts";
-import "swiper/css"
 
 const router = createBrowserRouter([
   {

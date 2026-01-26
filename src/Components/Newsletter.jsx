@@ -13,7 +13,7 @@ export default function Newsletter() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="mt-20 rounded-xl py-20 px-8 bg-gray-100 text-center"
+        className="mt-20 rounded-xl py-10 px-8 bg-gray-100 text-center"
         id="newsletter"
       >
         <h2 className="text-3xl md:text-4xl mx-auto mb-10">

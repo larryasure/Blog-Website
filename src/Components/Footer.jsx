@@ -15,8 +15,7 @@ export default function Footer() {
         <div>
           <h3 className="text-xl font-bold mb-4">My Blog</h3>
           <p className=" max-w-sm">
-            Writing about technology, design, and the creative process — one
-            post at a time.
+            "Creative Proccess - Unique Thoughts, these make an exceptional Piece of writings." -  <span className="italic font-bold ">LanreCodes</span> 
           </p>
         </div>
 

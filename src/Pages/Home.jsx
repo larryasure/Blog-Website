@@ -3,11 +3,12 @@ import { NavLink } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay, Pagination } from "swiper/modules";
-import { categories } from "../Data/Categories";
 import { motion } from "framer-motion";
-import CategoryCards from "../Components/CategoryCards";
-import aboutImg from "../assets/about.jpg"
+import aboutImg from "../assets/about.jpg";
 import Newsletter from "../Components/Newsletter";
+import { categories } from "../Data/Categories";
+import CategoryCards from "../Components/CategoryCards";
+
 
 export default function Home() {
   return (
@@ -72,25 +73,29 @@ export default function Home() {
           grabCursor={true}
           // speed={1500}
           breakpoints={{
-            640: { slidesPerView: 2 },
+            640: { slidesPerView: 1 },
             1024: { slidesPerView: 2 },
           }}
         >
           {posts.slice(0, 6).map((post) => (
             <SwiperSlide key={post.id}>
-              <div className="relative rounded-xl overflow-hidden shadow-lg mb-15 hover:scale-[1.01] duration-300 transition-all cursor-pointer">
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className=" object-cover h-80 w-full object-bottom"
-                />
-                <div className="absolute bottom-0 left-0 p-4 bg-black/50 w-full">
-                  <h2 className="text-white text-xl font-bold">{post.title}</h2>
-                  <p className="text-gray-200 text-sm line-clamp-2">
-                    {post.excerpt}
-                  </p>
+              <NavLink to={`/blogs/${post.slug}`}>
+                <div className="relative rounded-xl overflow-hidden shadow-lg mb-15 hover:scale-[1.01] duration-300 transition-all cursor-pointer">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className=" object-cover h-80 w-full object-bottom"
+                  />
+                  <div className="absolute bottom-0 left-0 p-4 bg-black/50 w-full">
+                    <h2 className="text-white text-xl font-bold">
+                      {post.title}
+                    </h2>
+                    <p className="text-gray-200 text-sm line-clamp-2">
+                      {post.excerpt}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </NavLink>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -124,21 +129,22 @@ export default function Home() {
       </motion.section>
 
       <motion.section
-        className="my-20"
+        className="my-10"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.8, ease: "linear" }}
         viewport={{ once: true }}
       >
         <h2 className="text-4xl font-bold mb-10">Explore Categories</h2>
 
-        <div className="grid gap-7 sm:grid-cols-3  ">
+        <div className="grid gap-7 lg:grid-cols-3 grid-cols-2  ">
           {categories.map((cat) => (
-            <NavLink key={cat.slug} to={`/category/${cat.slug}`}>
-              <CategoryCards category={cat} />
+            <NavLink to={`/category/${cat.slug}`} key={cat.slug}>
+              <CategoryCards category={cat}/> 
             </NavLink>
-          ))}
+          )) }
         </div>
+
       </motion.section>
 
       <motion.section
@@ -194,7 +200,7 @@ export default function Home() {
         </NavLink>
       </motion.section>
 
-      <Newsletter/>
+      <Newsletter />
     </div>
   );
 }

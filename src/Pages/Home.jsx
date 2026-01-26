@@ -3,7 +3,11 @@ import { NavLink } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay, Pagination } from "swiper/modules";
+import { categories } from "../Data/Categories";
 import { motion } from "framer-motion";
+import CategoryCards from "../Components/CategoryCards";
+import aboutImg from "../assets/about.jpg"
+import Newsletter from "../Components/Newsletter";
 
 export default function Home() {
   return (
@@ -31,14 +35,14 @@ export default function Home() {
         <div className="flex gap-4 mt-10">
           <NavLink
             to="/blogs"
-            className="bg-black text-white px-8 py-4 rounded-full hover:bg-gray-800 transition"
+            className="bg-black text-white px-8 py-3 rounded-full hover:bg-gray-800 transition"
           >
             Read the Blog
           </NavLink>
 
           <NavLink
             to="/about"
-            className="border border-gray-300 px-8 py-4 rounded-full hover:bg-gray-100 transition"
+            className="border border-gray-300 px-8 py-3 rounded-full hover:bg-gray-100 transition"
           >
             About Me
           </NavLink>
@@ -92,7 +96,16 @@ export default function Home() {
         </Swiper>
       </motion.div>
 
-      <section className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={{
+          visible: { transition: { staggerChildren: 0.15 } },
+          hidden: {},
+        }}
+        className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5"
+      >
         {posts.slice(0, 4).map((post) => (
           <NavLink key={post.id} to={`/blog/${post.slug}`}>
             <div className="shadow-md rounded-xl overflow-hidden hover:scale-[1.02] transition">
@@ -108,7 +121,80 @@ export default function Home() {
             </div>
           </NavLink>
         ))}
-      </section>
+      </motion.section>
+
+      <motion.section
+        className="my-20"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <h2 className="text-4xl font-bold mb-10">Explore Categories</h2>
+
+        <div className="grid gap-7 sm:grid-cols-3  ">
+          {categories.map((cat) => (
+            <NavLink key={cat.slug} to={`/category/${cat.slug}`}>
+              <CategoryCards category={cat} />
+            </NavLink>
+          ))}
+        </div>
+      </motion.section>
+
+      <motion.section
+        className="my-20 flex flex-col md:flex-row items-center gap-10"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        {/* Image or illustration */}
+        <div className="w-full md:w-1/2">
+          <img
+            src={aboutImg}
+            alt="About Me"
+            className="rounded-xl w-full object-cover shadow-lg"
+          />
+        </div>
+
+        {/* Text */}
+        <div className="w-full md:w-1/2">
+          <h2 className="text-4xl font-bold mb-4">About Me</h2>
+          <p className="text-gray-600 mb-6">
+            Hi, I’m LanreCodes! I write about tech, lifestyle, design, and
+            creative ideas. My goal is to share insights, tutorials, and stories
+            that inspire curiosity and creativity.
+          </p>
+
+          <NavLink
+            to="/about"
+            className="inline-block bg-black text-white px-8 py-2.5 rounded-full hover:bg-gray-800 transition"
+          >
+            Learn More
+          </NavLink>
+        </div>
+      </motion.section>
+
+      <motion.section
+        className="my-20 text-center bg-gray-50 p-16 rounded-xl shadow-lg"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <h2 className="text-4xl font-bold mb-6">Stay Inspired</h2>
+        <p className="text-gray-600 mb-8">
+          Dive into the latest posts, tutorials, and ideas. Don’t miss out!
+        </p>
+        <NavLink
+          to="/blogs"
+          className="inline-block bg-black text-white px-8 py-2.5 rounded-full hover:bg-gray-800 transition"
+        >
+          Explore Blog
+        </NavLink>
+      </motion.section>
+
+      <Newsletter/>
     </div>
   );
 }

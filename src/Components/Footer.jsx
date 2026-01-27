@@ -8,7 +8,7 @@ export default function Footer() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: true }}
-      className="mt-32 border-t border-gray-200 bg-black text-white/75 px-8 py-16"
+      className="mt-15  border-t border-gray-200 bg-black text-white/75 px-8 py-16"
     >
       <div className="max-w-7xl mx-auto grid gap-12 md:grid-cols-3">
         {/* Brand */}

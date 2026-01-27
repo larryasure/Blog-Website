@@ -9,17 +9,16 @@ import Newsletter from "../Components/Newsletter";
 import { categories } from "../Data/Categories";
 import CategoryCards from "../Components/CategoryCards";
 
-
 export default function Home() {
   return (
     <div className="min-h-screen px-8 py-16 max-w-7xl mx-auto">
       {/* HERO SECTION */}
       <motion.section
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.8, ease: "easeInOut" }}
         viewport={{ once: true }}
-        className="mb-32"
+        className="mb-20"
       >
         <h1 className="text-5xl md:text-7xl font-extrabold leading-tight max-w-4xl">
           Stories that spark <br />
@@ -101,7 +100,7 @@ export default function Home() {
         </Swiper>
       </motion.div>
 
-      <motion.section
+      {/* <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -126,7 +125,7 @@ export default function Home() {
             </div>
           </NavLink>
         ))}
-      </motion.section>
+      </motion.section> */}
 
       <motion.section
         className="my-10"
@@ -137,14 +136,19 @@ export default function Home() {
       >
         <h2 className="text-4xl font-bold mb-10">Explore Categories</h2>
 
-        <div className="grid gap-7 lg:grid-cols-3 grid-cols-2  ">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          viewport={{ once: true }}
+          className="grid gap-7 lg:grid-cols-3 grid-cols-2  "
+        >
           {categories.map((cat) => (
             <NavLink to={`/category/${cat.slug}`} key={cat.slug}>
-              <CategoryCards category={cat}/> 
+              <CategoryCards category={cat} />
             </NavLink>
-          )) }
-        </div>
-
+          ))}
+        </motion.div>
       </motion.section>
 
       <motion.section
